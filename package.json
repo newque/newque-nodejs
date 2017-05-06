@@ -1,0 +1,31 @@
+{
+  "name": "newque-nodejs",
+  "version": "0.0.1",
+  "description": "The Newque Nodejs Driver",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newque/newque-nodejs.git"
+  },
+  "keywords": [
+    "Newque",
+    "Driver",
+    "Broker"
+  ],
+  "author": "Brad Stimpson <halliosdev@gmail.com> (http://www.newque.io)",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/newque/newque-nodejs/issues"
+  },
+  "homepage": "https://github.com/newque/newque-nodejs#readme",
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0"
+  }
+}
