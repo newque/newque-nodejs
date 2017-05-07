@@ -11,18 +11,59 @@ The Newque Node.js driver the design of which is inspired heavily by Axios.
   `npm install @bradstimpson\newque-nodejs`
 
 ## Usage
+```javascript
 
-    var numFormatter = require('@jdaudier/number-formatter');
+  // Send an HTTP POST request to write
+  newque{
+    protocol: 'http',
+    method: 'write',
+    url: 'localhost:8000/v1',
+    channel: 'example'
+    messages: {
+      'Fred',
+      'Flintstone',
+      'Rocks!'
+    }
+  });
 
-    var formattedNum = numFormatter(35666);
-  
-  
-  Output should be `35,666`
+```
+
+```javascript
+
+  // Send an HTTP GET request to count
+  newque{
+    protocol: 'http',
+    method: 'count',
+    url: 'localhost:8000/v1',
+    channel: 'example'
+  });  
+
+```
+
+```javascript
+
+  // Send an HTTP GET request to read 
+  newque{
+    protocol: 'http',
+    method: 'read',
+    url: 'localhost:8000/v1',
+    channel: 'example',
+    mode: 'one'
+  });  
+
 
 
 ## Tests
 
   `npm test`
+
+## Lint
+
+  `npm run lint`
+  
+## Code Coverage
+
+  `npm run cover`
 
 ## Contributing
 

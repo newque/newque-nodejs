@@ -1,13 +1,4 @@
-'use strict';
+/* Created by brad on 2017-05-06.
+ */
 
-/**
- * Adds commas to a number
- * @param {number} number
- * @param {string} locale
- * @return {string}
- */
-module.exports = function(number, locale) {
-    return number.toLocaleString(locale);
-};/**
- * Created by brad on 2017-05-06.
- */
+module.exports = require('./lib/newque');
