@@ -2,6 +2,7 @@ Newque Node.js Driver
 =========
 
 [![npm version](https://badge.fury.io/js/newque-nodejs.svg)](https://badge.fury.io/js/newque-nodejs)
+[![Build Status](https://travis-ci.org/newque/newque-nodejs.svg?branch=master)](https://travis-ci.org/newque/newque-nodejs)
 [![Coverage Status](https://coveralls.io/repos/github/newque/newque-nodejs/badge.svg?branch=master)](https://coveralls.io/github/newque/newque-nodejs?branch=master)
 
 The Newque Node.js driver the design of which is inspired heavily by Axios.
