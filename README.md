@@ -1,4 +1,4 @@
-Number Formatter
+Newque Node.js Driver
 =========
 
 A small library that adds commas to numbers
