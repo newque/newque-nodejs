@@ -11,7 +11,7 @@ HTTPie needs to be installed
 This will startup a docker container using the default configuration.  On port 8000 there is an HTTP listener with a SQL backend.
 ```docker
 docker pull newque/newque
-docker run -p 8000:8000 -p 8001:8001 -p 8005:8005 -d -t bradstimpson/newque-docker
+docker run -p 8000:8000 -p 8001:8001 -p 8005:8005 -d -t newque/newque
 ```
 
 #### Where to find more info?
@@ -21,6 +21,9 @@ How to use HTTPie: https://httpie.org/doc
 ### Write A Message
 Using HTTPie let's write a series of messages to Newque:
 `http POST localhost:8000/v1/example atomic:=true messages:='["abc","def","ghi"]' --json`
+
+Using curl:
+`curl -H "Content-Type: application/json" -X POST "localhost:8000/v1/example" -d '{"atomic":"true","messages":["abc","def","ghi"]}'`
 
 ### Count the Stored Messages
 Using HTTPie let's count how many messages are stored:
@@ -42,3 +45,10 @@ To extract multiple messages at once:
 
 To extract after a specific ID:
 `http GET localhost:8000/v1/example 'newque-mode:after_id e28e1e86-f925-4922-9c62-30d57ebb7a62'`
+
+### Admin API Functions
+To check the configuration of the server.  This will return the channels:
+`curl -i localhost:8001/channels`
+
+This will return the listeners setup on the server: 
+`curl -i localhost:8001/listeners`
