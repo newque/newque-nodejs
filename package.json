@@ -31,10 +31,12 @@
     "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.3.0"
+    "mocha": "^3.3.0",
+    "sinon": "^2.3.7"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "follow-redirects": "^1.2.4",
     "protocol-buffers": "^3.2.1",
     "superagent": "^3.5.2",
     "zmq": "^2.15.3"
