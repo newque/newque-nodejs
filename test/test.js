@@ -5,26 +5,26 @@ var assert = require('chai').assert;
 var sinon = require('sinon');
 var newque = require('../lib/newque');
 
+var nuq = newque.create({
+  baseURL: 'http://localhost:8000/',
+  timeout: 1000,
+  headers: {"Content-type":"application/json"}
+});
+
 /*eslint no-param-reassign:0*/
 describe('#newque', function newqueTest() {
   /*eslint no-param-reassign:0*/
-  it('should return count 0', function counter() {
-    var result = numFormatter(1);
-    expect(result).to.equal('1');
-  });
 
-  it('should http write to newque', function startup() {
-    newque({
-      protocol: 'http',
-      method: 'write',
-      url: 'localhost:8000/v1',
-      channel: 'example',
-      messages: [
-        'Fred',
-        'Flintstone',
-        'Rocks!'
-      ]
-    })
+  it('should http write to newque', function() {
+    nuq.post(
+      '/v1/example',
+      {
+        "atomic":"true",
+        "messages":[
+          'Fred',
+          'Flintstone',
+          'Rocks!'
+      ]})
     .then(function success(response) {
       /*eslint no-console: "allow"*/
       console.log("SUCCESS", response);
@@ -35,19 +35,25 @@ describe('#newque', function newqueTest() {
     });
   });
 
-  it('should log the correct value to console', () => {
-    // "spy" on `console.log()`
-    let spy = sinon.spy(console, 'log');
-
-    // call the function that needs to be tested
-    consoleOutput(5);
-
-    // assert that it was called with the correct value
-    assert(spy.calledWith(25));
-
-    // restore the original function
-    spy.restore();
+  it('should http read from newque', function() {
+    nuq.get('/v1/example', {"headers": {"newque-mode":"one"}})
+    .then(function success(response) {console.log("SUCCESS", response)})
+    .catch(function failure(error) {console.log("ERROR", error)});
   });
+
+  // it('should log the correct value to console', function() {
+  //   // "spy" on `console.log()`
+  //   var spy = sinon.spy(console, 'log');
+
+  //   // call the function that needs to be tested
+  //   consoleOutput(5);
+
+  //   // assert that it was called with the correct value
+  //   assert(spy.calledWith(25));
+
+  //   // restore the original function
+  //   spy.restore();
+  // });
 });
 
   // the function to test
