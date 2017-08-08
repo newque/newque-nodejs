@@ -1,6 +1,6 @@
 # Contributing
 
-We are open to, and grateful for, any contributions made by the community. By contributing to newque, you agree to abide by the [code of conduct](https://github.com/mzabriskie/axios/blob/master/CODE_OF_CONDUCT.md).
+We are open to, and grateful for, any contributions made by the community. By contributing to newque, you agree to abide by the [code of conduct](https://github.com/newque/newque-nodejs/blob/master/CODE_OF_CONDUCT.md).
 
 ### Code Style
 
@@ -25,17 +25,30 @@ Please update the docs accordingly so that there are no discrepencies between th
 
 ### Developing
 
-- `grunt test` run the jasmine and nodeunit tests
-- `grunt build` run webpack and bundle the source
-- `grunt version` prepare the code for release
-- `grunt watch:test` watch for changes and run `test`
-- `grunt watch:build` watch for changes and run `build`
+In order to start developing, you will need to install the zeromq library in your environment.  This can be done using homebrew on a mac.  To install homebrew follow:
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
+```
+
+To install zeromq:
+```
+brew install zeromq
+
+```
+
+The test suite requires a running Newque server.  The easiest way to get started is to fire up the docker image:
+```
+docker run -v $(pwd)/conf:/newque/conf -p 8000:8000 -p 8001:8001 -p 8005:8005 -p 8006:8006 -p 8007:8007 -d -t newque/newque
+```
+
+- `npm run test` run the mocha and chai tests
+
 
 Please don't include changes to `dist/` in your pull request. This should only be updated when releasing a new version.
 
 ### Releasing
 
-Releasing a new version is mostly automated. For now the [CHANGELOG](https://github.com/mzabriskie/axios/blob/master/CHANGELOG.md) requires being updated manually. Once this has been done run the commands below. Versions should follow [semantic versioning](http://semver.org/).
+Releasing a new version is mostly automated. For now the [CHANGELOG](https://github.com/newque/newque/blob/master/CHANGELOG.md) requires being updated manually. Once this has been done run the commands below. Versions should follow [semantic versioning](http://semver.org/).
 
 - `npm version <newversion> -m "Releasing %s"`
 - `npm publish`

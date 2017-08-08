@@ -1,0 +1,18 @@
+{
+  "listeners": ["http8000", "zmq8005"],
+  "backend": "fifo",
+  "backendSettings": {
+    "host": "127.0.0.1",
+    "port": 8007,
+    "timeout": 1000,
+    "healthTimeLimit": 500
+  },
+  "acknowledgement": "saved",
+  "readSettings": {
+  },
+  "writeSettings": {
+    "forward": []
+  },
+  "raw": true,
+  "emptiable": true
+}

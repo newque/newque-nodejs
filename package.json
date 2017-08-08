@@ -27,18 +27,20 @@
     "node": ">=4.2.4"
   },
   "devDependencies": {
+    "bluebird": "^3.5.0",
     "chai": "^3.5.0",
+    "chai-as-promised": "^7.1.1",
     "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
+    "follow-redirects": "^1.2.4",
     "istanbul": "^0.4.5",
-    "mocha": "^3.3.0",
-    "sinon": "^2.3.7"
+    "mocha": "^3.5.0",
+    "sinon": "^2.4.1",
+    "superagent": "^3.5.2",
+    "superagent-promise": "^1.1.0"
   },
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "follow-redirects": "^1.2.4",
     "protocol-buffers": "^3.2.1",
-    "superagent": "^3.5.2",
     "zmq": "^2.15.3"
   }
 }
